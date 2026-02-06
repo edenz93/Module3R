@@ -52,7 +52,7 @@ ames_rec <-
   step_filter(gr_liv_area <= 4000) %>%
   step_mutate(time_since_remodel = year_sold - year_remod_add, 
          house_age = year_sold - year_built) %>%
-  step_select(-year_remod_add, -year_built) %>%
+  step_rm(-year_remod_add, -year_built) %>%
   step_nzv(all_predictors()) %>% 
   step_normalize(all_numeric_predictors()) %>% 
   step_dummy(all_nominal_predictors(), one_hot = FALSE) 
